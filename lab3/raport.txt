@@ -1,0 +1,29 @@
+IDE (MySQL Workbench):
+
+W zakładce 'Administration' wejść w 'Data Export'.
+Wybrać bazę do utworzenia backupu.
+Dodać opcjonalne rzeczy do eksportu:
+    - procedury i funkcje
+    - wydarzenia
+    - triggery
+Zaznaczyć eksport całej bazy do pliku oraz wybrać jego położenie i nazwę.
+Kliknąć 'Start Export'.
+
+Przejść w 'Schemas'. Prawym przyciskiem nacisnąć bazę 'laboratorium3' i kliknąć 'Drop Schema'.
+
+Wrócić do 'Administration' i wejść w 'Data Import/Restore’.
+Zaznaczyć import z pliku oraz wybrać plik.
+Utworzyć nową bazę docelową dla importu.
+Przejść w zakładkę 'Import Progress’ i nacisnąć 'Start Import’.
+
+Terminal:
+
+#mysql folder added to PATH
+mysqldump --user=root --result-file=lab3cmd.sql --default-character-set=utf8 --routines --events "laboratorium3" --password
+
+#mysql server
+DROP DATABASE laboratorium3;
+CREATE DATABASE lab3cmd;
+\q
+
+mysql -u root -p lab3cmd < ./lab3cmd.sql
